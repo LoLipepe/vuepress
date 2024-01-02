@@ -9,6 +9,7 @@
 import { defineConfig } from "vuepress/config";
 
 export default defineConfig({
+  base: "/vuepress/",
   scss: {},
   title: "小张的博客",
   description: "这是我的第一个 VuePress 站点",
