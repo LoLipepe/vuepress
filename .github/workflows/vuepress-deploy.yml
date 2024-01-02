@@ -13,15 +13,10 @@ jobs:
    - name: Checkout code
      uses: actions/checkout@v2
 
-   - name: Install dependencies
-     run: npm install
-
-   - name: Build docs
-     run: npm run docs:build
-
-   - name: Deploy to GitHub Pages
-     uses: LoLipepe/vuepress@v3
-     with:
-       github_token: ${{ secrets.GITHUB_TOKEN }}
-       publish_dir: ./docs/.vuepress/dist
-       branch: gh-pages
+   - name: Build and Deploy
+     uses: LoLipepe/vuepress@main
+     env:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        TARGET_BRANCH: gh_pages
+        BUILD_SCRIPT: yarn && yarn build
+        BUILD_DIR: blog/.vuepress/dist/
