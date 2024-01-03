@@ -24,11 +24,16 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+      
+      - name: Install NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.16.0'
 
       # 打包
       - name: Build
         run:  |
-          npm ci
+          npm i
           npm run build
 
       # 部署到 GitHub Pages
