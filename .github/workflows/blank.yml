@@ -34,7 +34,7 @@ jobs:
       - name: Build
         run:  |
           npm i
-          npm run build
+          npm run docs:build
 
       # 部署到 GitHub Pages
       - name: Deploy
