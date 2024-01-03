@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>vuepress 部署到GitHub Pages 使用 Github Actions | 小张的博客</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    
+    <meta name="description" content="这是我的第一个 VuePress 站点">
+    
+    <link rel="preload" href="/vuepress/assets/css/0.styles.6b07c8e8.css" as="style"><link rel="preload" href="/vuepress/assets/js/app.b40e1b8d.js" as="script"><link rel="preload" href="/vuepress/assets/js/2.58244656.js" as="script"><link rel="preload" href="/vuepress/assets/js/1.dc7adba2.js" as="script"><link rel="preload" href="/vuepress/assets/js/24.51f42dfc.js" as="script"><link rel="prefetch" href="/vuepress/assets/js/10.a9ace829.js"><link rel="prefetch" href="/vuepress/assets/js/11.2a97faa3.js"><link rel="prefetch" href="/vuepress/assets/js/12.92b47e85.js"><link rel="prefetch" href="/vuepress/assets/js/13.ebfb1f42.js"><link rel="prefetch" href="/vuepress/assets/js/14.3e65117c.js"><link rel="prefetch" href="/vuepress/assets/js/15.2d87bde7.js"><link rel="prefetch" href="/vuepress/assets/js/16.9ca9aae8.js"><link rel="prefetch" href="/vuepress/assets/js/17.3dbcb51f.js"><link rel="prefetch" href="/vuepress/assets/js/18.4c170722.js"><link rel="prefetch" href="/vuepress/assets/js/19.d8afd0ae.js"><link rel="prefetch" href="/vuepress/assets/js/20.0d880388.js"><link rel="prefetch" href="/vuepress/assets/js/21.0ad1d6a3.js"><link rel="prefetch" href="/vuepress/assets/js/22.38a1b7af.js"><link rel="prefetch" href="/vuepress/assets/js/23.70b65352.js"><link rel="prefetch" href="/vuepress/assets/js/25.7c8a8bd8.js"><link rel="prefetch" href="/vuepress/assets/js/26.f3d18e28.js"><link rel="prefetch" href="/vuepress/assets/js/27.6d29d247.js"><link rel="prefetch" href="/vuepress/assets/js/3.bc6bba9e.js"><link rel="prefetch" href="/vuepress/assets/js/4.45665f8a.js"><link rel="prefetch" href="/vuepress/assets/js/5.7098d77a.js"><link rel="prefetch" href="/vuepress/assets/js/6.0c0a0f39.js"><link rel="prefetch" href="/vuepress/assets/js/7.6a854e57.js"><link rel="prefetch" href="/vuepress/assets/js/vendors~docsearch.5e19b665.js">
+    <link rel="stylesheet" href="/vuepress/assets/css/0.styles.6b07c8e8.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/vuepress/" class="home-link router-link-active"><!----> <span class="site-name">小张的博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <ul class="sidebar-links"><li><a href="/vuepress/" aria-current="page" class="sidebar-link">Home</a></li><li><a href="/vuepress/guide/git.html" class="sidebar-link">Git</a></li><li><a href="/vuepress/guide/vue2.html" class="sidebar-link">Vue 2</a></li><li><a href="/vuepress/guide/vue3.html" class="sidebar-link">Vue 3</a></li><li><a href="/vuepress/guide/vite.html" class="sidebar-link">Vite</a></li><li><a href="/vuepress/guide/github.html" aria-current="page" class="active sidebar-link">Github</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vuepress/guide/github.html#vuepress-部署到github-pages-使用-github-actions" class="sidebar-link">vuepress 部署到GitHub Pages 使用 Github Actions</a></li></ul></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="vuepress-部署到github-pages-使用-github-actions"><a href="#vuepress-部署到github-pages-使用-github-actions" class="header-anchor">#</a> vuepress 部署到GitHub Pages 使用 Github Actions</h2> <p>1.生成ACCESS_TOKEN: 在我们GitHub的个人设置中，点击 <code>Settings</code>，选择 <code>Developer settings</code>，然后选择 <code>Personal access tokens</code>，然后选择 <code>Tokens (classic)</code>，点击 <code>Generate new token(classic)</code>，在 <code>Note</code> 中填写一个备注，然后选择 <code>repo</code>，最后点击 <code>Generate token</code>。
+2.在个人项目仓库页面上，点击 <code>Settings</code>，选择 <code>Secrets and variables</code>，然后点击 <code>Actions</code> ，然后点击 <code>New repository secret</code>，在 <code>Name</code> 中填写 <code>ACCESS_TOKEN</code> ，在 <code>Value</code> 中填写你生成的 ACCESS_TOKEN。
+3.设置Actions权限: 在个人项目仓库页面上，点击<code>Settings</code>，选择<code>Actions</code>，然后点击<code>General</code>，然后选择<code>Workflow permissions</code>，然后选择 <code>Read and write permissions</code> ,并且勾选 <code>Allow GitHub Actions to create and approve pull requests</code> 。
+4. 创建一个Github仓库，命名为：<code>&lt;username&gt;.github.io</code>
+5. 创建一个分支，命名为：<code>main</code>
+6. 创建一个 <code>.github/workflows/deploy.yml</code> 文件，内容如下：</p> <div class="language- extra-class"><pre class="language-text"><code>name: Deploy
+
+# Controls when the workflow will run
+on:
+# 对main分支的提交和拉去操作执行监听
+push:
+    branches: [ &quot;main&quot; ]
+pull_request:
+    branches: [ &quot;main&quot; ]
+
+# Allows you to run this workflow manually from the Actions tab
+workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+# This workflow contains a single job called &quot;build&quot;
+build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v3
+    
+    # 解决v17版本 Error:0308010C:digital envelope routines::unsupported
+    - name: Install NodeJS
+        uses: actions/setup-node@v3
+        with:
+        node-version: '16.16.0'
+
+    # 打包 打包命令与package.json中一致
+    - name: Build
+        run:  |
+        npm i
+        npm run docs:build
+
+    # 部署到 GitHub Pages 下面的uses是固定的他的GitHub: https://github.com/JamesIves/github-pages-deploy-action
+    - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }} # 也就是我们刚才生成的 secret
+        BRANCH: gh-pages # 部署到 gh-pages 分支，因为 main 分支存放的一般是源码，而 gh-pages 分支则用来存放生成的静态文件(不用自己创建,程序会自动创建分支)
+        FOLDER: docs/.vuepress/dist # vuepress 生成的静态文件存放的地方(根据需求自行修改)
+</code></pre></div><p>7.点击项目仓库中的 <code>Settings&gt;&gt;Pages&gt;&gt;</code> 中的 <code>Branch</code> 选择 <code>gh-pages</code> ,路径选择 <code>/</code> 然后点击 <code>Save</code> 保存</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/vuepress/guide/vite.html" class="prev">
+        Vite
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/vuepress/assets/js/app.b40e1b8d.js" defer></script><script src="/vuepress/assets/js/2.58244656.js" defer></script><script src="/vuepress/assets/js/1.dc7adba2.js" defer></script><script src="/vuepress/assets/js/24.51f42dfc.js" defer></script>
+  </body>
+</html>
