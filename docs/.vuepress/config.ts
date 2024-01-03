@@ -24,6 +24,7 @@ export default defineConfig({
       ["/guide/vue2", "Vue 2"],
       ["/guide/vue3", "Vue 3"],
       ["/guide/vite", "Vite"],
+      ["/guide/github", "Github"],
     ],
   },
 });
